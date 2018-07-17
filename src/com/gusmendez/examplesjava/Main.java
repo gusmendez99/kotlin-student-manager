@@ -20,7 +20,15 @@ public class Main {
                 "\t6. Salir\n";
     }
 
-
+    private static int searchNivel(List<Nivel> niveles, String nombreNivel) {
+        int pos = -1;
+        for(int x=0; x < niveles.size(); x++){
+            if(niveles.get(x).getNombre().equals(nombreNivel)){
+                return x;
+            }
+        }
+        return pos;
+    }
 
     public static void main(String[] args) {
 
@@ -75,7 +83,7 @@ public class Main {
                             System.out.print("Ingrese el nombre del grado: ");
                             nombreGrado = ReadUtil.readString();
                             if(!nombreGrado.isEmpty()){
-                                int positionGrado = searchGrado(niveles.get(positionNivel).getGrados(), nombreGrado);
+                                int positionGrado = niveles.get(positionNivel).searchGrado(nombreGrado);
                                 if(positionGrado >= 0){
                                     System.out.print("Ingrese el nombre del estudiante: ");
                                     String nombreEstudiante = ReadUtil.readString();
@@ -128,7 +136,7 @@ public class Main {
                             System.out.print("Ingrese el nombre del grado: ");
                             nombreGrado = ReadUtil.readString();
                             if(!nombreGrado.isEmpty()){
-                                int positionGrado = searchGrado(niveles.get(positionNivel).getGrados(), nombreGrado);
+                                int positionGrado = niveles.get(positionNivel).searchGrado(nombreGrado);
                                 if(positionGrado >= 0){
                                     System.out.println("**ESTUDIANTES DE GRADO:" + nombreGrado + ", NIVEL: " + nombreNivel + "**");
                                     for(Estudiante e: niveles.get(positionNivel).getGrado(positionGrado).getEstudiantes()){
@@ -154,25 +162,5 @@ public class Main {
             }
         } while (option != 6);
 
-    }
-
-    private static int searchNivel(List<Nivel> niveles, String nombreNivel) {
-        int pos = -1;
-        for(int x=0; x < niveles.size(); x++){
-            if(niveles.get(x).getNombre().equals(nombreNivel)){
-                return x;
-            }
-        }
-        return pos;
-    }
-
-    private static int searchGrado(List<Grado> grados, String nombreGrado) {
-        int pos = -1;
-        for(int x=0; x < grados.size(); x++){
-            if(grados.get(x).getNombre().equals(nombreGrado)){
-                return x;
-            }
-        }
-        return pos;
     }
 }

@@ -29,7 +29,5 @@ public class Grado {
         this.estudiantes.add(estudiante);
     }
 
-    /*public void setEstudiantes(ArrayList<Estudiante> estudiantes) {
-        this.estudiantes = estudiantes;
-    }*/
+
 }

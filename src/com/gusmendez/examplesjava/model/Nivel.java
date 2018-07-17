@@ -29,6 +29,16 @@ public class Nivel {
         return this.grados.get(position);
     }
 
+    public int searchGrado(String nombreGrado) {
+        int pos = -1;
+        for(int x=0; x < this.grados.size(); x++){
+            if(this.grados.get(x).getNombre().equals(nombreGrado)){
+                return x;
+            }
+        }
+        return pos;
+    }
+
     /*public void setGrados(ArrayList<Grado> grados) {
         this.grados = grados;
     }*/
