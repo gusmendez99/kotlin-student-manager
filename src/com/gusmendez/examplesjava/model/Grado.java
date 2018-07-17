@@ -1,14 +1,16 @@
 package com.gusmendez.examplesjava.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Grado {
 
     private String nombre;
-    private ArrayList<Estudiante> estudiantes;
+    private List<Estudiante> estudiantes;
 
     public Grado(String nombre) {
         this.nombre = nombre;
+        this.estudiantes = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -19,8 +21,12 @@ public class Grado {
         this.nombre = nombre;
     }
 
-    public ArrayList<Estudiante> getEstudiantes() {
+    public List<Estudiante> getEstudiantes() {
         return estudiantes;
+    }
+
+    public void addEstudiante(Estudiante estudiante){
+        this.estudiantes.add(estudiante);
     }
 
     /*public void setEstudiantes(ArrayList<Estudiante> estudiantes) {

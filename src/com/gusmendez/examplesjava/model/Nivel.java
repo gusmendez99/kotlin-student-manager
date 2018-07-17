@@ -1,14 +1,16 @@
 package com.gusmendez.examplesjava.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Nivel {
 
     private String nombre;
-    private ArrayList<Grado> grados;
+    private List<Grado> grados;
 
     public Nivel(String nombre){
         this.nombre = nombre;
+        this.grados = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -19,15 +21,12 @@ public class Nivel {
         this.nombre = nombre;
     }
 
-    public ArrayList<Grado> getGrados() {
+    public List<Grado> getGrados() {
         return grados;
     }
 
-    public Grado getGrado(String nombre) {
-        for(Grado grado: grados){
-            if(grado.getNombre().equals(nombre)) return grado;
-        }
-        return null;
+    public Grado getGrado(int position) {
+        return this.grados.get(position);
     }
 
     /*public void setGrados(ArrayList<Grado> grados) {
